@@ -1,0 +1,9 @@
+{
+  "name": "bun-baby",
+  "module": "index.html",
+  "scripts": {
+    "dev": "bun index.html",
+    "build": "rm -rf dist/ && bun build index.html --outdir=dist/"
+  },
+  "type": "module"
+}

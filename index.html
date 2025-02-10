@@ -1,0 +1,213 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <section id="spacebar">
+      <h1 class="spacebar">Spacebar to advance 👉</h1>
+    </section>
+    <section id="loading" class="loading">
+      <h1>Making pancakes...</h1>
+      <div id="cooking">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div id="area">
+          <div id="sides">
+            <div id="pan"></div>
+            <div id="handle"></div>
+          </div>
+          <div id="pancake">
+            <div id="pastry"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="story">
+      <h1 id="story-line1" class="line hidden">
+        👶 Six years ago, back in 2018, Ryu came into our lives...
+      </h1>
+      <h1 id="story-line2" class="line hidden">
+        🌏 We wanted to give him the world, but first we needed a forever
+        home...
+      </h1>
+      <h1 id="story-line3" class="line hidden">
+        💰 This required heartbreaking sacrifice to save enough money...
+      </h1>
+      <h1 id="story-line4" class="line hidden">
+        🏡 In 2024, we finally did it!
+      </h1>
+      <h1 id="story-line5" class="line hidden">
+        💕 Love makes all things possible...
+      </h1>
+      <h1 id="story-line6" class="line hidden">👨‍👩‍👧‍👦 Family is everything...</h1>
+      <h1 id="story-line7" class="line hidden">
+        😎 In 2025, Ryu will become a cool big brother!
+      </h1>
+    </section>
+
+    <section id="baking" class="baking">
+      <div class="container">
+        <h1>There's a bun in the oven!</h1>
+        <!-- <h1>The best is yet to crumb!</h1> -->
+      </div>
+      <div class="container">
+        <div class="oven">
+          <div class="tempwording">
+            <p>Temp</p>
+          </div>
+          <div class="timerwording">
+            <p>Timer</p>
+          </div>
+          <div class="knob" id="knob"></div>
+          <div class="knob2" id="knob2"></div>
+          <div class="temp" id="temp"></div>
+          <div class="timer" id="timer"></div>
+          <div class="clock" id="clock"></div>
+          <div class="door">
+            <div class="window">
+              <div class="rack"></div>
+              <div class="bread"></div>
+              <div class="pan"></div>
+              <div class="steam">
+                <div class="steam1"></div>
+                <div class="steam2"></div>
+                <div class="steam3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Show loading animation until the spacebar is hit, then show the next bit every time until we see the bun in the oven -->
+    <script type="text/javascript">
+      let step = "loading";
+      document.body.onkeyup = function (e) {
+        if (step === "baking") return;
+
+        if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
+          let loadingSection = document.getElementById("loading");
+          let storySection = document.getElementById("story");
+          let bakingSection = document.getElementById("baking");
+          let spacebarSection = document.getElementById("spacebar");
+
+          /* Loading into Story */
+          if (step === "loading" && loadingSection) {
+            loadingSection.remove();
+
+            setTimeout(function () {
+              storySection.className = "";
+              storySection.className += "story fade-in";
+            }, 500);
+
+            setTimeout(function () {
+              let storyLine1 = document.getElementById("story-line1");
+              storyLine1.className = "";
+              storyLine1.className += "line";
+            }, 1000);
+            step = "story-line2";
+          } else if (step === "story-line2" && storySection) {
+            setTimeout(function () {
+              let storyLine2 = document.getElementById("story-line2");
+              storyLine2.className = "";
+              storyLine2.className += "line";
+            }, 500);
+            step = "story-line3";
+          } else if (step === "story-line3" && storySection) {
+            setTimeout(function () {
+              let storyLine3 = document.getElementById("story-line3");
+              storyLine3.className = "";
+              storyLine3.className += "line";
+            }, 500);
+            step = "story-line4";
+          } else if (step === "story-line4" && storySection) {
+            setTimeout(function () {
+              let storyLine4 = document.getElementById("story-line4");
+              storyLine4.className = "";
+              storyLine4.className += "line";
+            }, 500);
+            step = "story-line5";
+          } else if (step === "story-line5" && storySection) {
+            setTimeout(function () {
+              let storyLine5 = document.getElementById("story-line5");
+              storyLine5.className = "";
+              storyLine5.className += "line";
+            }, 500);
+            step = "story-line6";
+          } else if (step === "story-line6" && storySection) {
+            setTimeout(function () {
+              let storyLine6 = document.getElementById("story-line6");
+              storyLine6.className = "";
+              storyLine6.className += "line";
+            }, 500);
+            step = "story-line7";
+          } else if (step === "story-line7" && storySection) {
+            setTimeout(function () {
+              let storyLine7 = document.getElementById("story-line7");
+              storyLine7.className = "";
+              storyLine7.className += "line";
+            }, 500);
+            step = "story-end";
+
+            /* Story into Oven */
+          } else if (step === "story-end" && storySection) {
+            storySection.remove();
+            spacebarSection.remove();
+
+            setTimeout(function () {
+              bakingSection.className = "";
+              bakingSection.className += "baking fade-in";
+            }, 500);
+            step = "baking";
+          }
+        }
+      };
+    </script>
+
+    <!-- Countdown timer on the oven screen -->
+    <script type="text/javascript">
+      function getTimeRemaining(endtime) {
+        const total = Date.parse(endtime) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60) % 60);
+        const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+        return {
+          total,
+          days,
+          hours,
+          minutes,
+          seconds,
+        };
+      }
+
+      function initializeClock(id, endtime) {
+        const clock = document.getElementById(id);
+
+        function updateClock() {
+          const t = getTimeRemaining(endtime);
+
+          clock.innerHTML = `${t.days}d ${("0" + t.hours).slice(-2)}h ${(
+            "0" + t.minutes
+          ).slice(-2)}m ${("0" + t.seconds).slice(-2)}s`;
+
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+          }
+        }
+
+        updateClock();
+        const timeinterval = setInterval(updateClock, 1000);
+      }
+
+      const deadline = new Date(2025, 9, 17);
+      initializeClock("clock", deadline);
+    </script>
+  </body>
+</html>
