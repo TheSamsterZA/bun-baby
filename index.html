@@ -1,11 +1,12 @@
 <html>
   <head>
+    <title>👩‍🍳💖🥞🥖</title>
     <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
     <section id="spacebar">
-      <h1 class="spacebar">Spacebar to advance 👉</h1>
+      <h1 class="spacebar">Click or Tap or Spacebar to advance 👉</h1>
     </section>
     <section id="loading" class="loading">
       <h1>Making pancakes...</h1>
@@ -53,7 +54,6 @@
     <section id="baking" class="baking">
       <div class="container">
         <h1>There's a bun in the oven!</h1>
-        <!-- <h1>The best is yet to crumb!</h1> -->
       </div>
       <div class="container">
         <div class="oven">
@@ -84,89 +84,102 @@
       </div>
     </section>
 
-    <!-- Show loading animation until the spacebar is hit, then show the next bit every time until we see the bun in the oven -->
+    <!-- Show loading animation until some interaction, then show the next bit each time until we see the bun in the oven -->
     <script type="text/javascript">
       let step = "loading";
-      document.body.onkeyup = function (e) {
+      function handleInteraction(e) {
+        console.log(e);
+        e.preventDefault();
+
         if (step === "baking") return;
 
-        if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
-          let loadingSection = document.getElementById("loading");
-          let storySection = document.getElementById("story");
-          let bakingSection = document.getElementById("baking");
-          let spacebarSection = document.getElementById("spacebar");
+        let loadingSection = document.getElementById("loading");
+        let storySection = document.getElementById("story");
+        let bakingSection = document.getElementById("baking");
+        let spacebarSection = document.getElementById("spacebar");
 
-          /* Loading into Story */
-          if (step === "loading" && loadingSection) {
-            loadingSection.remove();
+        /* Loading into Story */
+        if (step === "loading" && loadingSection) {
+          loadingSection.remove();
 
-            setTimeout(function () {
-              storySection.className = "";
-              storySection.className += "story fade-in";
-            }, 500);
+          setTimeout(function () {
+            storySection.className = "";
+            storySection.className += "story fade-in";
+          }, 500);
 
-            setTimeout(function () {
-              let storyLine1 = document.getElementById("story-line1");
-              storyLine1.className = "";
-              storyLine1.className += "line";
-            }, 1000);
-            step = "story-line2";
-          } else if (step === "story-line2" && storySection) {
-            setTimeout(function () {
-              let storyLine2 = document.getElementById("story-line2");
-              storyLine2.className = "";
-              storyLine2.className += "line";
-            }, 500);
-            step = "story-line3";
-          } else if (step === "story-line3" && storySection) {
-            setTimeout(function () {
-              let storyLine3 = document.getElementById("story-line3");
-              storyLine3.className = "";
-              storyLine3.className += "line";
-            }, 500);
-            step = "story-line4";
-          } else if (step === "story-line4" && storySection) {
-            setTimeout(function () {
-              let storyLine4 = document.getElementById("story-line4");
-              storyLine4.className = "";
-              storyLine4.className += "line";
-            }, 500);
-            step = "story-line5";
-          } else if (step === "story-line5" && storySection) {
-            setTimeout(function () {
-              let storyLine5 = document.getElementById("story-line5");
-              storyLine5.className = "";
-              storyLine5.className += "line";
-            }, 500);
-            step = "story-line6";
-          } else if (step === "story-line6" && storySection) {
-            setTimeout(function () {
-              let storyLine6 = document.getElementById("story-line6");
-              storyLine6.className = "";
-              storyLine6.className += "line";
-            }, 500);
-            step = "story-line7";
-          } else if (step === "story-line7" && storySection) {
-            setTimeout(function () {
-              let storyLine7 = document.getElementById("story-line7");
-              storyLine7.className = "";
-              storyLine7.className += "line";
-            }, 500);
-            step = "story-end";
+          setTimeout(function () {
+            let storyLine1 = document.getElementById("story-line1");
+            storyLine1.className = "";
+            storyLine1.className += "line";
+          }, 1000);
+          step = "story-line2";
+        } else if (step === "story-line2" && storySection) {
+          setTimeout(function () {
+            let storyLine2 = document.getElementById("story-line2");
+            storyLine2.className = "";
+            storyLine2.className += "line";
+          }, 500);
+          step = "story-line3";
+        } else if (step === "story-line3" && storySection) {
+          setTimeout(function () {
+            let storyLine3 = document.getElementById("story-line3");
+            storyLine3.className = "";
+            storyLine3.className += "line";
+          }, 500);
+          step = "story-line4";
+        } else if (step === "story-line4" && storySection) {
+          setTimeout(function () {
+            let storyLine4 = document.getElementById("story-line4");
+            storyLine4.className = "";
+            storyLine4.className += "line";
+          }, 500);
+          step = "story-line5";
+        } else if (step === "story-line5" && storySection) {
+          setTimeout(function () {
+            let storyLine5 = document.getElementById("story-line5");
+            storyLine5.className = "";
+            storyLine5.className += "line";
+          }, 500);
+          step = "story-line6";
+        } else if (step === "story-line6" && storySection) {
+          setTimeout(function () {
+            let storyLine6 = document.getElementById("story-line6");
+            storyLine6.className = "";
+            storyLine6.className += "line";
+          }, 500);
+          step = "story-line7";
+        } else if (step === "story-line7" && storySection) {
+          setTimeout(function () {
+            let storyLine7 = document.getElementById("story-line7");
+            storyLine7.className = "";
+            storyLine7.className += "line";
+          }, 500);
+          step = "story-end";
 
-            /* Story into Oven */
-          } else if (step === "story-end" && storySection) {
-            storySection.remove();
-            spacebarSection.remove();
+          /* Story into Oven */
+        } else if (step === "story-end" && storySection) {
+          storySection.remove();
+          spacebarSection.remove();
 
-            setTimeout(function () {
-              bakingSection.className = "";
-              bakingSection.className += "baking fade-in";
-            }, 500);
-            step = "baking";
-          }
+          setTimeout(function () {
+            bakingSection.className = "";
+            bakingSection.className += "baking fade-in";
+          }, 500);
+          step = "baking";
         }
-      };
+      }
+
+      function startup() {
+        document.body.addEventListener("keyup", function (e) {
+          if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
+            handleInteraction(e);
+          }
+        });
+        document.body.addEventListener("click", handleInteraction);
+        document.body.addEventListener("touchend", handleInteraction);
+      }
+
+      window.onload = startup;
     </script>
 
     <!-- Countdown timer on the oven screen -->
