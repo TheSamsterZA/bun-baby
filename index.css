@@ -22,7 +22,7 @@ body {
   width: 100vw;
   text-align: center;
   font-family: "Amatic SC";
-  font-size: 6vh;
+  font-size: clamp(1.8rem, 6vh, 6vh);
   color: #333;
   opacity: 0.75;
   animation: pulse 2.5s linear infinite;
@@ -273,7 +273,7 @@ body {
   animation: nudge 2.5s linear infinite;
   text-align: right;
   font-family: "Amatic SC";
-  font-size: 4.5vh;
+  font-size: clamp(1.8rem, 4vh, 4vh);
   color: #333;
   margin: auto;
 }
@@ -292,7 +292,7 @@ body {
 }
 
 .story {
-  margin: 1em 3em;
+  /* margin: 1em 3em; */
   opacity: 0;
   transition: none;
   display: grid;
@@ -314,6 +314,13 @@ body {
   height: fit-content;
 }
 
+@media only screen and (max-width: 786px) {
+  .story > h1 {
+    font-size: 3vh;
+    word-wrap: break-word;
+  }
+}
+
 .story > h1.line.hidden {
   display: none;
 }
@@ -328,10 +335,16 @@ body {
   overflow: hidden;
   white-space: nowrap;
   letter-spacing: 0.1em;
-  /* text-align: left;
-  position: absolute;
-  left: calc(50% - 10rem);
-  font-size: 0; */
+}
+
+@media only screen and (max-width: 786px) {
+  .story > h1.line {
+    font-size: 3vh;
+    white-space: normal;
+    word-wrap: break-word;
+    /* Effectively skip to the end of the animation immediately */
+    animation-timing-function: steps(1, jump-start);
+  }
 }
 
 @keyframes text-reveal {
@@ -361,7 +374,7 @@ body {
 .container > h1 {
   text-align: center;
   font-family: "Amatic SC";
-  font-size: 6vh;
+  font-size: clamp(1.8rem, 6vh, 6vh);
   color: #333;
 }
 
