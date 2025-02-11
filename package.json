@@ -3,7 +3,8 @@
   "module": "index.html",
   "scripts": {
     "dev": "bun index.html",
-    "build": "rm -rf dist/ && bun build index.html --outdir=dist/ --minify && cp robots.txt dist/"
+    "build": "rm -rf dist/ && bun build index.html --outdir=dist/ --minify && cp robots.txt dist/",
+    "serve": "bunx http-server ./dist"
   },
   "type": "module"
 }

@@ -278,6 +278,16 @@ body {
   margin: auto;
 }
 
+.spacebar > img {
+  height: 1em;
+  width: 1em;
+}
+
+.spacebar > img.spacebar-image {
+  height: 1em;
+  width: fit-content;
+}
+
 @keyframes nudge {
   0%,
   50%,
