@@ -340,6 +340,7 @@ body {
   transition: none;
   display: grid;
   place-content: center;
+  justify-items: center;
 }
 
 .story.fade-in {
@@ -405,10 +406,6 @@ body {
   transition: none;
 }
 
-/* .baking.hidden {
-  display: none;
-} */
-
 .baking.fade-in {
   opacity: 1;
   transition: 1s opacity;
@@ -418,6 +415,7 @@ body {
   text-align: center;
   font-family: "Amatic SC";
   font-size: clamp(1.8rem, 6vh, 6vh);
+  text-wrap-style: balance;
   color: #333;
 }
 
@@ -454,6 +452,26 @@ body {
   height: 10vmin;
   bottom: 0vmin;
   background: #dddddd;
+}
+
+@media only screen and (max-width: 786px) {
+  .baking {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 4px;
+  }
+
+  .oven {
+    width: 95vmin;
+  }
+  .oven::before {
+    width: 95vmin;
+  }
+  .oven::after {
+    width: 95vmin;
+  }
 }
 
 .tempwording {
@@ -533,6 +551,16 @@ body {
   background: #fcf1f1;
 }
 
+@media only screen and (max-width: 786px) {
+  .timerwording {
+    left: 70vmin;
+  }
+
+  .knob2 {
+    left: 70vmin;
+  }
+}
+
 .clock,
 .timer,
 .temp {
@@ -548,6 +576,16 @@ body {
   padding: 0.5em 0;
   color: #66ff99;
   user-select: none;
+}
+
+@media only screen and (max-width: 786px) {
+  .clock,
+  .timer,
+  .temp {
+    width: 38vmin;
+    height: 5.5vmin;
+    font-size: 3vmin;
+  }
 }
 
 .door {
