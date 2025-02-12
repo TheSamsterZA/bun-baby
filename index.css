@@ -48,6 +48,12 @@ body {
   animation: flip 2.1s ease-in-out infinite;
 }
 
+@media only screen and (max-width: 786px) {
+  #cooking #area {
+    left: 10em;
+  }
+}
+
 #cooking #area #sides {
   position: absolute;
   width: 100%;
@@ -151,6 +157,33 @@ body {
   height: 1.1vh;
   background-color: #242424;
   animation: bubble 1.6s ease-in-out 1s infinite;
+}
+
+@media only screen and (max-width: 786px) {
+  #cooking .bubble:nth-child(1) {
+    /* left: 58%; */
+    left: 35%;
+  }
+
+  #cooking .bubble:nth-child(2) {
+    /* left: 52%; */
+    left: 29%;
+  }
+
+  #cooking .bubble:nth-child(3) {
+    /* left: 50%; */
+    left: 27%;
+  }
+
+  #cooking .bubble:nth-child(4) {
+    /* left: 56%; */
+    left: 33%;
+  }
+
+  #cooking .bubble:nth-child(5) {
+    /* left: 63%; */
+    left: 40%;
+  }
 }
 
 @keyframes pulse {
