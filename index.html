@@ -460,6 +460,15 @@
         balloon.addEventListener("click", (e) => {
           onClick(e.clientX, e.clientY, balloon, isBehind);
         });
+        balloon.addEventListener("touchend", (e) => {
+          console.log();
+          onClick(
+            e.changedTouches[0].clientX,
+            e.changedTouches[0].clientY,
+            balloon,
+            isBehind
+          );
+        });
       };
 
       const onClick = (x, y, balloon, isBehind) => {
