@@ -450,7 +450,7 @@ body {
 }
 
 .baking {
-  margin: 3em;
+  margin: 0 auto;
   opacity: 0;
   transition: none;
 }
@@ -466,6 +466,10 @@ body {
   font-size: clamp(1.8rem, 6vh, 6vh);
   text-wrap-style: balance;
   color: #333;
+}
+
+.buntext {
+  margin: unset;
 }
 
 .container {

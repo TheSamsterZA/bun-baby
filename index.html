@@ -151,7 +151,7 @@
 
       <svg id="behind" width="1" height="1"></svg>
       <div class="container">
-        <h1>
+        <h1 class="buntext">
           There's a bun in the oven...
           <span id="gender-reveal" class="hidden">and it's a girl! 👧</span>
         </h1>
@@ -461,7 +461,6 @@
           onClick(e.clientX, e.clientY, balloon, isBehind);
         });
         balloon.addEventListener("touchend", (e) => {
-          console.log();
           onClick(
             e.changedTouches[0].clientX,
             e.changedTouches[0].clientY,
